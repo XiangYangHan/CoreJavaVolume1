@@ -7,7 +7,6 @@ public class CopyOfTest {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3};
-        int i = (int) new Object();
 //        a = badCopyOf(a, 10); // 提示int[]无法转换成为Object[]
         a = (int[]) goodCopyOf(a, 10);
         System.out.println(Arrays.toString(a));
