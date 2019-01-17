@@ -26,7 +26,11 @@ class TalkingClock2 {
                 if (beep) {
                     Toolkit.getDefaultToolkit().beep();
                 }
-                System.out.println(beep + " " + interval);
+                /*
+                    生成的匿名内部类的Filed中将包括在匿名内部类中使用的外部类的局部变量
+                    这些Filed由匿名内部类的构造方法初始化
+                 */
+//                System.out.println(beep + " " + interval);
             }
         }).start();
 //        new Timer(interval, e -> {
