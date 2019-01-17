@@ -14,10 +14,10 @@ public class LambdaTest {
         Arrays.sort(planets);
         System.out.println(Arrays.toString(planets));
         System.out.println("Sorted by length:");
-        Arrays.sort(planets, (first, second) -> first.length() - second.length());
+//        Arrays.sort(planets, (first, second) -> first.length() - second.length());
         Arrays.sort(planets, Comparator.comparingInt(String::length));
-//        Arrays.sort(planets, Comparator.comparing(String::length));
 //        Arrays.sort(planets, Comparator.comparingInt(s -> s.length()));
+//        Arrays.sort(planets, Comparator.comparing(String::length));
         System.out.println(Arrays.toString(planets));
 
         new Timer(1000, e -> System.out.println("The time is " + new Date())).start();
