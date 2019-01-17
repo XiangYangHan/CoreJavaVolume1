@@ -18,16 +18,16 @@ public class ReflectionTest {
                 System.out.print(modifier + " ");
             }
             System.out.print("class " + name + " ");
-            if (null != supercl && supercl != Object.class) {
+            if (null != supercl/* && supercl != Object.class*/) {
                 System.out.print("extends " + supercl.getName() + " ");
             }
             System.out.print("{\n");
 
-//            printConstructors(cl);
+            printConstructors(cl);
 
             printMethods(cl);
-//
-//            printFields(cl);
+
+            printFields(cl);
 
             System.out.println("}");
         } catch (ClassNotFoundException e) {
@@ -89,7 +89,7 @@ public class ReflectionTest {
         Field[] declaredFields = cl.getDeclaredFields();
 
         for (Field field : declaredFields) {
-            System.out.println("    ");
+            System.out.print("    ");
             String modifier = Modifier.toString(field.getModifiers());
             String typeName = field.getType().getName();
             String name = field.getName();
