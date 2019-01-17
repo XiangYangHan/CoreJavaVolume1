@@ -12,30 +12,34 @@ public class ReflectionTest {
 
         try {
             Class<?> cl = Class.forName(name);
-            Class<?> supercl = cl.getSuperclass();
-            String modifier = Modifier.toString(cl.getModifiers());
-            if (modifier.length() > 0) {
-                System.out.print(modifier + " ");
-            }
-            System.out.print("class " + name + " ");
-            if (null != supercl/* && supercl != Object.class*/) {
-                System.out.print("extends " + supercl.getName() + " ");
-            }
-            System.out.print("{\n");
-
-            printConstructors(cl);
-
-            printMethods(cl);
-
-            printFields(cl);
-
-            System.out.println("}");
+            printClass(cl);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     private ReflectionTest(){}
+
+    public static void printClass(Class cl) {
+        Class<?> supercl = cl.getSuperclass();
+        String modifier = Modifier.toString(cl.getModifiers());
+        if (modifier.length() > 0) {
+            System.out.print(modifier + " ");
+        }
+        System.out.print("class " + cl.getName() + " ");
+        if (null != supercl/* && supercl != Object.class*/) {
+            System.out.print("extends " + supercl.getName() + " ");
+        }
+        System.out.print("{\n");
+
+        printConstructors(cl);
+
+        printMethods(cl);
+
+        printFields(cl);
+
+        System.out.println("}");
+    }
 
     public static void printConstructors(Class cl) {
 
