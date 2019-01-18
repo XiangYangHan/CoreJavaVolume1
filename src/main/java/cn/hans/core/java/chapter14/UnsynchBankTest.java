@@ -18,7 +18,7 @@ public class UnsynchBankTest {
                         int to = (int) (bank.size() * Math.random());
                         double amount = MAX_AMOUNT * Math.random();
                         bank.transfer(from, to, amount);
-//                        Thread.sleep((long) (DELAY * Math.random()));
+                        Thread.sleep((long) (DELAY * Math.random()));
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
