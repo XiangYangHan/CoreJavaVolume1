@@ -11,10 +11,10 @@ public class UnsynchBankTest {
         Bank bank = new Bank(ACCOUNT_NUMBER, INITIAL_BALANCE);
 
         for (int i = 0; i < bank.size(); i++) {
+            int from = i;
             new Thread(() -> {
                 try {
                     while (true) {
-                        int from = (int) (bank.size() * Math.random());
                         int to = (int) (bank.size() * Math.random());
                         double amount = MAX_AMOUNT * Math.random();
                         bank.transfer(from, to, amount);
